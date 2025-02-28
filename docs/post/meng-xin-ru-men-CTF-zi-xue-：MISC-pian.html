@@ -78,8 +78,8 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <div class="markdown-body" id="postBody"><h3><strong>前言</strong></h3>
 <p>此贴用于记录本人在入门CTF（MISC）的历程。<br>
 因为个人感觉MISC对于纯萌新（对相关知识完全没有了解）来说最好入门，其相关知识也相对容易通过自己摸索来掌握，所以目前会以MISC为切入点对CTF相关知识进行学习。<br>
-会随着学习进度逐步更新。<br>
-<strong>纯萌新的第一题</strong><br>
+会随着学习进度逐步更新。</p>
+<p><strong>纯萌新的第一题</strong><br>
 <em><strong>题目：</strong></em></p>
 <blockquote>
 <p>小明想给心爱的妹子表白很久，可是不知道怎么开口，你能帮帮小明吗？<br>
@@ -89,7 +89,43 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <p>说实话刚看到的时候很崩溃，大脑中全是疑惑，MD5什么东西？后面一大串字符又是什么鬼？<br>
 但静下心一想，已经大学了，要学会利用搜索引擎，又不是高中不给带电子产品。一搜果然茅舍顿开。原来MD5是一种加密算法，去找解密工具就能得到flag。<br>
 一不做二不休，搜索md5解密工具，找到网站<a href="https://www.somd5.com/" rel="nofollow">https://www.somd5.com/</a> ，把密文丢进去，得到“ <em>helloctf</em> ”<br>
-所以flag就是flag{hello}。解决！</p></div>
+所以flag就是flag{hello}。解决！</p>
+<p><strong>有点难的第二题</strong><br>
+<strong><em>题目：</em></strong></p>
+<blockquote>
+<p>小明的压缩包又忘记密码了？他去电脑维修店去修，人家扔出来说这个根本就没有密码，是个假密码。小明懵了，明明有密码的啊，你能帮帮小明吗？</p>
+</blockquote>
+<p>带一个附件压缩包</p>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/61c323f7-dd19-42af-8649-6870fdd33dc8"><img src="https://github.com/user-attachments/assets/61c323f7-dd19-42af-8649-6870fdd33dc8" alt="Image" style="max-width: 100%;"></a><br>
+点开看看，里面有flag！</p>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/f8c19209-e467-49cb-9f37-1b8c3bc40bd2"><img src="https://github.com/user-attachments/assets/f8c19209-e467-49cb-9f37-1b8c3bc40bd2" alt="Image" style="max-width: 100%;"></a><br>
+奶奶的有密码，哎小明怎么这么坏</p>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/fc01bbc3-386e-4e4b-9e68-73c2feb55613"><img src="https://github.com/user-attachments/assets/fc01bbc3-386e-4e4b-9e68-73c2feb55613" alt="Image" style="max-width: 100%;"></a><br>
+怎么办？爆破吗？一点线索也没有怕不是要试到猴年马月，只能另寻他路。回到题干，“<em>根本就没有密码</em>”<br>
+在搜索引擎搜索“压缩包假密码”试试看吧。</p>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/bd6dc027-0e6e-4d6f-a731-7a179f6d2355"><img src="https://github.com/user-attachments/assets/bd6dc027-0e6e-4d6f-a731-7a179f6d2355" alt="Image" style="max-width: 100%;"></a><br>
+阅读完一遍已经有头绪了，就是更改了压缩包的数据让压缩包从无加密变为有加密（实际上没密码）</p>
+<blockquote>
+<p>具体如下：识别真假加密<br>
+无加密<br>
+数据区 的全局加密应当为 00 00<br>
+目录区 的全局方式位标记应当为 00 00</p>
+<p>假加密<br>
+数据区 的全局加密应当为 00 00<br>
+目录区 的全局方式位标记应当为 09 00</p>
+<p>真加密<br>
+数据区 的全局加密应当为 09 00<br>
+目录区 的全局方式位标记应当为 09 00<br>
+————————————————</p>
+</blockquote>
+<blockquote>
+<p>原文链接：<a href="https://blog.csdn.net/qq_44105778/article/details/94961293" rel="nofollow">https://blog.csdn.net/qq_44105778/article/details/94961293</a></p>
+</blockquote>
+<p>此时只要将压缩包的16进制编码进行小更改就好了。<br>
+此时问题又来了，用什么来更改呢，再搜！用winhex。</p>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/9d0a8121-781d-4963-b8ec-034006d858b1"><img src="https://github.com/user-attachments/assets/9d0a8121-781d-4963-b8ec-034006d858b1" alt="Image" style="max-width: 100%;"></a><br>
+用winhex打开后找到目标，将09 00改为00 00，再保存后打开压缩包，果然没有密码了！<br>
+打开里面的txt文件，得到flag：“<em>flag{c_t_f_s_h_o_w}</em>” ，解决！</p></div>
 <div style="font-size:small;margin-top:8px;float:right;"></div>
 
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
