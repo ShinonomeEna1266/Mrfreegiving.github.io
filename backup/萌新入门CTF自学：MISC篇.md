@@ -65,5 +65,19 @@ _**题目：**_
 > 要是图片能继续往长一点该多好啊，小明暗暗的想。
 > 你能帮小明完成这个朴素的梦想吗？
 
-![Image](https://github.com/user-attachments/assets/b7ec7bda-0b71-429e-a8b0-3783690226a4)
-我的天玩这么大
+![Image](https://github.com/user-attachments/assets/c46fb04a-5682-431a-9d19-c58a5e12da41)
+
+我的天
+
+![Image](https://github.com/user-attachments/assets/29e478f2-8c13-461a-8644-5973930a49da)
+既然给了一张图片，那么flag肯定就藏在图片里，结合题目小明想让图片更长一点。
+这是什么意思，图片变长？那普通得拉伸操作肯定不行。不管了，谷歌启动！
+经过一番吉列地搜索，了解到可以通过修改png图片的编码来修改图片的长宽，这下思路便清晰了，只要知道了png的编码格式，找到其中与图片宽和高有关的参数，修改一下就行。
+用winhex打开图片，通过询问AI了解到具体改修改哪些数据
+
+![Image](https://github.com/user-attachments/assets/f8abcc61-09c9-4753-b987-1e88517ddb18)
+修改后保存，此时再看图片
+
+![Image](https://github.com/user-attachments/assets/42b8d87c-6656-48d8-945e-be6c966d673c)
+得到flag为flag{beautiful}，解决！
+
