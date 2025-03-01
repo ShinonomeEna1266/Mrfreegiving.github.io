@@ -58,8 +58,8 @@ _**题目：**_
 用winhex打开后找到目标，将09 00改为00 00，再保存后打开压缩包，果然没有密码了！
 打开里面的txt文件，得到flag：“_flag{c_t_f_s_h_o_w}_” ，解决！
 
-**第三题：PNG图片编码**
-**_题目:_**
+**第三题：图片编码**
+**_题目1:_**
 
 > 小明小心翼翼的打开压缩包，竟然是个图片，什么鬼？
 > 要是图片能继续往长一点该多好啊，小明暗暗的想。
@@ -80,4 +80,21 @@ _**题目：**_
 
 ![Image](https://github.com/user-attachments/assets/42b8d87c-6656-48d8-945e-be6c966d673c)
 得到flag为flag{beautiful}，解决！
+
+**_题目2:_**
+
+> 小明看完图片老脸一红，心想，我女朋友能有这么瘦就好了。
+
+![Image](https://github.com/user-attachments/assets/571e09d6-3d5b-4a5c-85c1-ae5ebcb7fa67)
+？
+结合题目，“瘦”，那应该就是把图片的宽度变小咯。
+用winhex打开图片，找到宽度对应的数据
+
+![Image](https://github.com/user-attachments/assets/368714b5-0096-49cf-87e3-f0836a7fe825)
+图片的宽度是780px，780对应的16进制数为30C，那就把00 00 03 0C改成00 00 02 0C看看。
+保存后得到图片
+
+![Image](https://github.com/user-attachments/assets/56b56827-591d-4618-bf0b-6c840b3ee911)
+解决！
+
 

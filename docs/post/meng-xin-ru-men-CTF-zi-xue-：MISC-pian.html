@@ -127,8 +127,8 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <p><a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/9d0a8121-781d-4963-b8ec-034006d858b1"><img src="https://github.com/user-attachments/assets/9d0a8121-781d-4963-b8ec-034006d858b1" alt="Image" style="max-width: 100%;"></a><br>
 用winhex打开后找到目标，将09 00改为00 00，再保存后打开压缩包，果然没有密码了！<br>
 打开里面的txt文件，得到flag：“<em>flag{c_t_f_s_h_o_w}</em>” ，解决！</p>
-<p><strong>第三题：PNG图片编码</strong><br>
-<strong><em>题目:</em></strong></p>
+<p><strong>第三题：图片编码</strong><br>
+<strong><em>题目1:</em></strong></p>
 <blockquote>
 <p>小明小心翼翼的打开压缩包，竟然是个图片，什么鬼？<br>
 要是图片能继续往长一点该多好啊，小明暗暗的想。<br>
@@ -144,7 +144,20 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <p><a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/f8abcc61-09c9-4753-b987-1e88517ddb18"><img src="https://github.com/user-attachments/assets/f8abcc61-09c9-4753-b987-1e88517ddb18" alt="Image" style="max-width: 100%;"></a><br>
 修改后保存，此时再看图片</p>
 <p><a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/42b8d87c-6656-48d8-945e-be6c966d673c"><img src="https://github.com/user-attachments/assets/42b8d87c-6656-48d8-945e-be6c966d673c" alt="Image" style="max-width: 100%;"></a><br>
-得到flag为flag{beautiful}，解决！</p></div>
+得到flag为flag{beautiful}，解决！</p>
+<p><strong><em>题目2:</em></strong></p>
+<blockquote>
+<p>小明看完图片老脸一红，心想，我女朋友能有这么瘦就好了。</p>
+</blockquote>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/571e09d6-3d5b-4a5c-85c1-ae5ebcb7fa67"><img src="https://github.com/user-attachments/assets/571e09d6-3d5b-4a5c-85c1-ae5ebcb7fa67" alt="Image" style="max-width: 100%;"></a><br>
+？<br>
+结合题目，“瘦”，那应该就是把图片的宽度变小咯。<br>
+用winhex打开图片，找到宽度对应的数据</p>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/368714b5-0096-49cf-87e3-f0836a7fe825"><img src="https://github.com/user-attachments/assets/368714b5-0096-49cf-87e3-f0836a7fe825" alt="Image" style="max-width: 100%;"></a><br>
+图片的宽度是780px，780对应的16进制数为30C，那就把00 00 03 0C改成00 00 02 0C看看。<br>
+保存后得到图片</p>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/56b56827-591d-4618-bf0b-6c840b3ee911"><img src="https://github.com/user-attachments/assets/56b56827-591d-4618-bf0b-6c840b3ee911" alt="Image" style="max-width: 100%;"></a><br>
+解决！</p></div>
 <div style="font-size:small;margin-top:8px;float:right;"></div>
 
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
